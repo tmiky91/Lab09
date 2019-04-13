@@ -30,10 +30,10 @@ public class Model {
 		BordersDAO dao = new BordersDAO();
 		dao.popolaGrafo(grafo);
 		for(Country c: grafo.vertexSet()) {
-			risultato+=c.toString()+ " "+grafo.degreeOf(c)+"\n";
+			risultato+=c.toString()+ "Grado: "+grafo.degreeOf(c)+"\n";
 		}
 		ConnectivityInspector<Country, DefaultEdge> inspector = new ConnectivityInspector<>(grafo);
-		risultato+=inspector.connectedSets().size();
+		risultato+="Componenti connesse del grafo: "+inspector.connectedSets().size();
 		
 		
 		return risultato;

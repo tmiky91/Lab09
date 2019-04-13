@@ -58,24 +58,47 @@ public class BordersController {
 	
 	 @FXML
 	 void doCalcolaConnessioni(ActionEvent event) {
-		 	String anno = txtAnno.getText();
-	    	Country c = btnComboBox.getValue();
-	    	if(anno!=null && !anno.isEmpty()) {
-	    		if(model.annoValido(anno)) {
-	    			if(c!=null) {
-	    				txtResult.setText(model.calcolaConnessioniDelloStato(anno, c));
-	    			}
-	    			else {
-	    				showMessage("Seleziona uno Stato dal menù a tendina");
-	    			}
-	    		}
-	    		else {
-	    			showMessage("Scrivi un anno valido");
-	    		}
-	    	}
-	    	else {
-	    		showMessage("Scrivi un anno compreso fra 1816 e il 2016");
-	    	}
+		 String anno = txtAnno.getText();
+		 Country c = btnComboBox.getValue();
+		 if(anno!=null && !anno.isEmpty()) {
+			 if(model.annoValido(anno)) {
+				 if(c!=null) {
+					 if(anno!=null && !anno.isEmpty() && c!=null) {
+						 txtResult.setText(model.calcolaConnessioniDelloStato(anno, c));
+					 }
+					 else {
+						 showMessage("Seleziona uno Stato dal menù a tendina e scrivi un anno compreso fra 1816 e il 2016");
+					 }
+				 }
+				 else {
+					 showMessage("Seleziona uno Stato dal menù a tendina");
+				 }
+			 }
+			 else {
+				 showMessage("Scrivi un anno valido");
+			 }
+		 }
+		 else {
+			 showMessage("Scrivi un anno compreso fra 1816 e il 2016");
+		 }
+//		 	String anno = txtAnno.getText();
+//	    	Country c = btnComboBox.getValue();
+//	    	if(anno!=null && !anno.isEmpty()) {
+//	    		if(model.annoValido(anno)) {
+//	    			if(c!=null) {
+//	    				txtResult.setText(model.calcolaConnessioniDelloStato(anno, c));
+//	    			}
+//	    			else {
+//	    				showMessage("Seleziona uno Stato dal menù a tendina");
+//	    			}
+//	    		}
+//	    		else {
+//	    			showMessage("Scrivi un anno valido");
+//	    		}
+//	    	}
+//	    	else {
+//	    		showMessage("Scrivi un anno compreso fra 1816 e il 2016");
+//	    	}
 	 }
 
 	@FXML // This method is called by the FXMLLoader when initialization is complete
