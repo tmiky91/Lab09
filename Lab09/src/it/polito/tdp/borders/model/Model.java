@@ -24,8 +24,8 @@ public class Model {
 
 	public boolean isDigit(String anno) {
 		
-		if(anno.matches("\\d{4}")) {
-			return true;
+		if(!anno.matches("\\d{4}")) {
+			return false;
 		}
 		int annoValido = Integer.parseInt(anno);
 		return annoValido>=1816 && annoValido<=2016;
